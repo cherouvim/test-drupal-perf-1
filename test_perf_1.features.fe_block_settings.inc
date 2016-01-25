@@ -25,7 +25,7 @@ function test_perf_1_default_fe_block_settings() {
         'region' => 'sidebar_second',
         'status' => 1,
         'theme' => 'bartik',
-        'weight' => 0,
+        'weight' => -12,
       ),
       'seven' => array(
         'region' => '',

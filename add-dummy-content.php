@@ -30,7 +30,7 @@ function addNode($title, $content, $date) {
 }
 
 
-for($i=0; $i<5000; $i++) {
+for($i=0; $i<20000; $i++) {
 	addNode(
 		'dummy node ' . $i,
 		'<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi convallis mi quis finibus vulputate. Etiam auctor eros sed posuere viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec quis risus vulputate, tempor augue non, molestie arcu. Nulla a lectus lorem. Donec pretium magna eget efficitur tempus. Ut vel risus cursus, rhoncus nunc eu, vulputate ex. Sed placerat euismod augue in venenatis. Suspendisse condimentum, odio eget vehicula imperdiet, eros eros vulputate nunc, aliquam tincidunt erat ipsum in lacus.</p>',
