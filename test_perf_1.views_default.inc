@@ -39,11 +39,24 @@ function test_perf_1_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Field: Content: test-date */
+  $handler->display->display_options['fields']['field_test_date']['id'] = 'field_test_date';
+  $handler->display->display_options['fields']['field_test_date']['table'] = 'field_data_field_test_date';
+  $handler->display->display_options['fields']['field_test_date']['field'] = 'field_test_date';
+  $handler->display->display_options['fields']['field_test_date']['label'] = '';
+  $handler->display->display_options['fields']['field_test_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_test_date']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Sort criterion: Content: test-date (field_test_date) */
+  $handler->display->display_options['sorts']['field_test_date_value']['id'] = 'field_test_date_value';
+  $handler->display->display_options['sorts']['field_test_date_value']['table'] = 'field_data_field_test_date';
+  $handler->display->display_options['sorts']['field_test_date_value']['field'] = 'field_test_date_value';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -61,6 +74,17 @@ function test_perf_1_views_default_views() {
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'test perf 2';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: test-date (field_test_date) */
+  $handler->display->display_options['sorts']['field_test_date_value']['id'] = 'field_test_date_value';
+  $handler->display->display_options['sorts']['field_test_date_value']['table'] = 'field_data_field_test_date';
+  $handler->display->display_options['sorts']['field_test_date_value']['field'] = 'field_test_date_value';
+  $handler->display->display_options['sorts']['field_test_date_value']['order'] = 'DESC';
   $export['test_perf_1'] = $view;
 
   return $export;
