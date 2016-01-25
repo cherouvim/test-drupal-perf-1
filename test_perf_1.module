@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the test-perf-1 feature.
+ */
+
+include_once 'test_perf_1.features.inc';
